@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 520px;
+            height: 333px;
+            margin: 50px auto;
+            background-color: yellowgreen;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imglist {
+            list-style: none;
+            width: 2600px;
+            position: absolute;
+            left: 0px;
+        }
+
+        #imglist li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        #navDiv {
+            position: absolute;
+            bottom: 15px;
+            /* left: 197px; */
+        }
+
+        #navDiv a {
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 0, 0, .3);
+            margin: 0 5px;
+        }
+
+        /* #navDiv a:hover {
+            background-color: gray;
+        } */
+    </style>
+    <script src="tool.js"></script>
+    <script>
+        window.onload = function () {
+            var imglist = document.getElementById("imglist");
+            var imgArr = document.getElementsByTagName("img");
+            imglist.style.width = 520 * imgArr.length + "px";
+
+            var outer = document.getElementById("outer");
+            var navDiv = document.getElementById("navDiv");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+            var allA = document.getElementsByTagName("a");
+            var index = 0;
+            allA[index].style.backgroundColor = "gray";
+
+            // 点击超链接显示相应的图片
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].num = i;
+                allA[i].onclick = function () {
+                    // 关闭定时器
+                    clearInterval(timer);
+                    index = this.num;
+                    // imglist.style.left = -520 * index + "px";
+
+                    setA();
+                    move(imglist, "left", -520 * index, 100, function () {
+                        autoChange();
+                    })
+                }
+            }
+            autoChange();
+            // 创建一个方法用来设置显示a
+            function setA() {
+                if (index >= imgArr.length - 1) {
+                    index = 0;
+                    imglist.style.left = 0;
+                }
+                for (var i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "black";
+            }
+            var timer;
+            // 创建一个函数使图片自动切换
+            function autoChange() {
+                // 开启定时器
+                timer = setInterval(function () {
+                    index++;
+                    index %= imgArr.length;
+                    move(imglist, "left", -520 * index, 20, function () {
+                        // 修改导航点
+                        setA();
+                    })
+                }, 3000);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 创建一个外部div -->
+    <div id="outer">
+        <ul id=imglist>
+            <li>
+                <img src="img/img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/img/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/img/5.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/img/1.jpg" alt="">
+            </li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>

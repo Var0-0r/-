@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 如果想把js代码写在上边 -->
+    <script>
+        //onload事件会在整个页面加载完成之后才触发，为window绑定一个onload事件
+        // 该事件对应的响应函数会在页面加载完成之后执行，这样就可以确保我们的代码执行时，所有的dom对象都加载完毕了
+        window.onload = function () {
+            var nbb = document.getElementById("nbb");
+            nbb.onclick = function () {
+                alert("你好");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="nbb">点我</button>
+    <button id="btn">按钮</button>
+    <script>
+        // 获取到button对象
+        var btn = document.getElementById("btn");
+        // 修改按钮的文字
+        btn.innerHTML = "new btn";
+    </script>
+    <!-- 可以写，但是属于结构与行为耦合，不方便维护，不推荐使用 -->
+    <!-- 可以写在标签的onclick属性中，点击执行js代码 -->
+    <button id="nb">点</button>
+    <script>
+        // 可以为按钮的对应事件绑定处理函数的形式来响应事件
+        // 这样当事件被触发时，其对应函数将会被调用
+        // 像这种为单击事件绑定的函数，我们称为单击响应函数
+        var nb = document.getElementById("nb");
+        nb.ondblclick = function () {
+            alert('荣荣是猪');
+        }
+    </script>
+    <!-- 浏览器加载一个页面时，是按照自上而下的顺序加载的
+        读取到一行就运行一行
+        如果将script标签写在页面上方，在代码执行时，页面还没有加载
+        将js代码写在下边，就是为了可以在页面加载完毕后，在执行js代码  -->
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var img = document.getElementById("img");
+            var imgArr = ["../img/1.jpg", "../img/2.jpg", "../img/3.jpg", "../img/4.jpg", "../img/5.jpg"];
+            var index = 0;
+            var timer;
+            var btn1 = document.getElementById("btn02");
+            btn1.onclick = function () {
+                //这样写可以使多次点击开始，图片会越来越快的问题解决
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    index++;
+                    if (index > imgArr.length - 1) {
+                        index = 0;
+                    }
+                    img.src = imgArr[index];
+                }, 1000);
+            }
+            var btn = document.getElementById("btn01");
+            btn.onclick = function () {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img id="img" src="../img/1.jpg" alt="">
+    <br>
+    <button id="btn02">开始</button>
+    <button id="btn01">暂停</button>
+</body>
+
+</html>

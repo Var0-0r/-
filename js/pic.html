@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            margin: 20px auto;
+            text-align: center;
+            background-color: pink;
+            width: 300px;
+        }
+
+        .w img {
+            width: 300px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var p = document.getElementById("p");
+            var img = document.getElementsByTagName("img")[0];
+            var prve = document.getElementById("prve");
+            var next = document.getElementById("next");
+            var arr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+            var index = 0;
+            p.innerHTML = "总共" + arr.length + "张图片，当前第" + (index + 1) + "张";
+            prve.onclick = function () {
+                index--;
+                if (index < 0) {
+                    index = arr.length - 1
+                }
+                img.src = arr[index];
+                p.innerHTML = "总共" + arr.length + "张图片，当前第" + (index + 1) + "张";
+
+            }
+            next.onclick = function () {
+                index++;
+                if (index > 4) {
+                    index = 0;
+                }
+                img.src = arr[index];
+                p.innerHTML = "总共" + arr.length + "张图片，当前第" + (index + 1) + "张";
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="w">
+        <p id="p"></p>
+        <img id="img" src="img/1.jpg" alt="">
+        <button id="prve">上一张</button>
+        <button id="next">下一张 </button>
+    </div>
+</body>
+
+</html>

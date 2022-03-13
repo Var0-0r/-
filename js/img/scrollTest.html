@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #info {
+            width: 400px;
+            height: 500px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //当垂直滚动条滚动到底时，表单可用
+            // onscroll  会在元素的滚动条滚动时触发
+            var info = document.getElementById("info");
+            var input = document.getElementsByTagName("input");
+
+            // 为info绑定onscroll事件
+            info.onscroll = function () {
+                //检查垂直滚动条是否到底
+                if (info.scrollHeight - info.scrollTop == info.scrollHeight) {
+                    //使表单可用
+                    //disabled 可以设置一个元素是否被禁用，true禁用 false可用
+                    input[0].disabled = false;
+                    input[1].disabled = false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>欢迎注册</h3>
+    <p id="info">亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+        亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册亲，欢迎注册
+    </p>
+    <input type="checkbox" name="" id="" disabled>我已仔细阅读协议
+    <input type="submit" value="注册" id="submit"></input>
+</body>
+
+</html>

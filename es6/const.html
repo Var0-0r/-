@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script>
+    //声明常量
+    const a = "123";
+    // 1.一定要有初始值
+    // 2.一般的常量使用大写
+    // 3.常量的值不能修改
+    // 4.作用于块级作用域
+    // 5.对于数组和对象的元素修改，不算对常量的修改，不会报错
+    //数组中变量保存的是地址值
+    const RNG = ["Uzi", "Ming"];
+    RNG.push("Xiaohu");
+    console.log(RNG);
+
+    //ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值 这被称为解构赋值
+    // 1.数组的解构赋值
+    const F4 = ["小沈阳", "宋小宝", "赵四", "刘能"];
+    let [xiao, song, zhao, liu] = F4;
+    console.log(xiao);
+
+    // 2.对象的解构赋值
+    const zhaobenshan = {
+        name: "赵本山",
+        age: 12,
+        xiaopin: function () {
+            console.log("我可以演小品");
+        }
+    }
+    let { name, age, xiaopin } = zhaobenshan;
+    console.log(name);
+    xiaopin();
+
+    // 模板字符串
+    // ES6引入新的生命字符串的方式``
+    // 1.声明
+    let str = `荣荣`;
+    // 2.内容中可以直接出现换行符
+    let str2 = `rr
+              ll`;
+    // 3.变量拼接
+    let love = `${str}是我的乖闺女`;
+    console.log(str, str2, love);
+
+    //对象的简化写法
+    // ES6允许在大括号里，直接写入变量和函数，作为对象的属性和方法。
+    let namee = "rr";
+    let agee = function () {
+        console.log("我十岁了");
+    }
+    const rr = {
+        namee,
+        agee,
+        toString() {
+            console.log(`我叫${namee}`);
+        }
+    }
+    rr.toString();
+
+    // ES6允许使用箭头=>定义函数
+    let fu = (a, b) => {
+        return a * b;
+    }
+    console.log(fu(10, 10));
+    // 箭头函数和普通函数的不同
+    // 1.this是静态的，它始终指向函数声明时所在作用域下的this的值
+    function fn() {
+        console.log(this.name);
+    }
+    let fn2 = () => {
+        console.log(this.name);
+    }
+    window.name = "rr";
+    const cname = {
+        name: "yl"
+    }
+    fn(); fn2();
+    fn.call(cname); fn2.call(cname);
+    // 2.不能作为构造函数实例化对象
+    // 3.不能使用arguments变量
+
+    //箭头函数的简写
+    //1.省略小括号 当形参有且只有一个时
+    let add = n => {
+        return n + n;
+    }
+    console.log(add(5));
+    // 2.省略花括号，当代码提只有一条语句时
+    let pow = n => n * n;
+    console.log(pow(10));
+
+    // 箭头函数的实践
+    // 箭头函数适合用与this无关的回调，如定时器，数组的方法回调
+    // 箭头函数不适用于this有关的回调，如事件回调，对象的方法
+
+    // ES6允许给函数参数赋初始值
+    // 1.形参初始值，具有默认值的参数，一般位置靠后
+    let addd = (a, b, c = 3) => {
+        return a + b + c;
+    }
+    console.log(addd(1, 2));
+    // 2.与结构赋值结合
+    let connect = ({ host, username }) => {
+        console.log(host);
+        console.log(username);
+    }
+    connect({
+        host: "127.0.0.1",
+        username: "rr"
+    })
+
+    //ES6引入rest参数，用于获取函数的实参，用来代替arguments
+    //注意rest参数必须放到参数最后
+    function fn(...args) {
+        console.log(args, args.length);
+    }
+    fn(1, 2, 3);
+
+    //扩展运算符
+    // ...扩展运算符能将数组转换为逗号分隔的参数序列
+    const tfboys = ["yyqx", "wy", "wjk"];
+    function chunwan() {
+        console.log(arguments, arguments.length);
+    }
+    chunwan(tfboys, ...tfboys);
+
+    // 应用
+    // 数组的合并
+    const fm = ["rr"];
+    const fl = ["yl"];
+    const famil = [...fm, ...fl];
+    console.log(famil);
+    // 数组的复制
+    const wef = [...famil];
+    console.log(wef);
+    //将一个伪数组转换为真正的数组
+    const div = document.querySelectorAll("div");
+    const divArr = [...div];
+    console.log(divArr);
+
+    //Symbol
+    let s = Symbol();
+    let s2 = Symbol("rr");
+    let s3 = Symbol.for("yl");
+    console.log(s, s2, s3);
+    s3 = 1;
+    console.log(s3);
+
+    // 使用场景
+    // 给对象添加属性或方法
+
+    let game = {};
+    let methods = {
+        up: Symbol(),
+        down: Symbol(),
+    }
+    game[methods.up] = function () {
+        console.log("upupupp");
+    }
+    game[methods.down] = function () {
+        console.log("downdownn");
+    }
+    // console.log(game.up());
+    let youxi = {
+        name: "狼人杀",
+        [Symbol("say")]: function () {
+            console.log("sasay");
+        }
+    }
+
+    // 生成器
+    // 生成器 就是一个特殊的函数
+    function* gen() {
+        console.log(111);
+        yield "荣荣是小猪";
+        console.log(222);
+        yield "荣荣是小猪";
+    }
+    console.log(gen());
+    // let iterator = gen();
+    // next()语句可以传入实参
+    // 传入的参数将作为其上一次的整体返回结果输出
+    // console.log(iterator.next());
+    // {value: '荣荣是小猪', done: false}
+
+    // 遍历
+    // for (let v of gen()) {
+    //     console.log(v);
+    // }
+    //     111
+    //     荣荣是小猪
+    //     222
+    //     荣荣是小猪
+
+    // 生成器的函数实例
+    // 异步编程 文件操作 网络操作（ajax request） 数据库操作
+    // 一秒后向控制台输出111，两秒后向控制台输出222，三秒钟后向控制台输出333
+    function one() {
+        setTimeout(() => {
+            console.log("111");
+            iterator.next();
+        }, 1000);
+    }
+    function two() {
+        setTimeout(() => {
+            console.log("222");
+            iterator.next();
+        }, 2000);
+    }
+    function three() {
+        setTimeout(() => {
+            console.log("333");
+            iterator.next();
+        }, 3000);
+    }
+    function* gen() {
+        yield one();
+        yield two();
+        yield three();
+    }
+    let iterator = gen();
+    iterator.next();
+
+</script>
+
+</html>

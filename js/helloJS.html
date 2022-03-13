@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 外部引入js代码 -->
+    <!-- <script></script> 一旦用来引入外部标签，就不能在编写代码了，浏览器会忽略
+    如果需要可以再写一个script标签-->
+    <script src="hellojs.js"></script>
+    <!-- <script>
+
+        //  浏览器弹出警告框
+        // alert("hello JS");
+        // 让计算机在页面输出内容
+        // document.write("hello JS"); 可以向body中输出内容
+        // 控制台输出内容
+        // console.log("控制台输出");
+        // 从上到下依次执行
+    </script> -->
+
+    <!-- 基本语法 -->
+    <script>
+        // 注释
+        // 1.js严格区分大小来写
+        // 2.js中每一条语句以；结尾
+            // 如果不写分号，浏览器会自动添加，但是会消耗系统资源，而且有时候，浏览器会嘉措分号，所以必须写
+        // 3.js会忽略多个空格和换行，所以我们可以利用空格和换行进行代码格式化
+
+
+        // 字面量和变量
+        // 字面量都是一些不可以改变的值 比如12345
+            // 字面量都是可以直接使用的，但是我们一般不会直接使用字面量
+        // 变量 变量可以用来保存字面量，变量的值可以任意改变，更加方便使用，所以开发中都是使用变量来保存字面量
+        // 可以通过变量对字面量进行描述
+        // 声明变量
+            // js中使用var关键字来声明变量
+            // var a;
+            // a=123;
+            // 或者
+            // var b = 234;
+            // alert(a);
+        // 标识符
+            // 在js中所有的可以我们自主命名的都可以称为是标识符
+            // 例如变量名、属性名、函数名
+            // 规则：标识符中可以包含 字母\数字\下划线\$ 
+                    // 标识符不能以数字开头
+                    // 标识符不能是es中的关键字和保留字
+                    // 标识符一般采用驼峰命名法 首字母小写，每个单词的开头字母大写，其余字母小写 xxYyZz
+                // JS底层保存标识符实际上是采用的Unicode编码，所以理论上讲，所有的utf-8中含有的内容都可以作为标识符
+
+
+            // 数据类型
+                // 数据类型指的就是字面量的类型
+                // js中有六种
+                //     String 字符串
+                //     Number 数值
+                //     Boolean 布尔值
+                //     Null 空值
+                //     undefined 未定义
+                //     Object 对象
+                // 其中string、number、boolean、null、undefined属于基本数据类型
+                // object属于引用数据类型
+                // string字符串 js中需要使用引号引起来 双引号单引号都可以，但是不要混着用
+                //             引号不能嵌套 双引号里面不能放双引号，单引号里面不能放单引号；
+                //                 但是可以这样 var str = '"你好"';
+                //                 或者可以使用\作为转义字符 var str = "\"你好\"";
+                //                 \n：换行 \t:制表符 \\:\  
+                // var str = "hello";
+                // console.log("str");
+                // Number 数值
+                // 在js中所有的数值都是number类型
+                //     包括整数和浮点数
+                // var a=123;
+                // console.log(a);
+                // 运算符typeof 检查变量类型；
+                //     console.log(typeof a);
+                // JS中最大的数 Number.MAX_VALUE
+                // JS中最小的数 Number.MIN_VALUE
+                //     console.log(Number.MAX_VALUE);
+                // 如果使用number表示的数字超过了最大值，则会返回一个Infinity（字面量 数值类型） 表示正无穷
+                // NaN not a number 
+                // 整数运算基本可以保证精度，如果使用其进行浮点数运算，可能得到一个不精确的值，所以不要使用其进行精确度高的运算
+                // Boolean 布尔值 主要用来逻辑判断
+                    // 布尔值只有两个 真true 假false
+                    // var bool=true;
+                    // console.log(bool);
+                // Null 空值
+                //     null的值只有一个就是null，专门用来表示空对象
+                //     console.log(typeof null); 返回object
+                // // Undefined 未定义 
+                //     undefined只有一个值undefined
+                //     当声明一个变量但是并不赋值时，它的值就是undefined；
+                //         var a=undefined; console.log(typeof a); undefined
+                
+
+// // 强制类型转换
+//         指将一个数据类型强制转换为其他的数据类型
+//         主要指，将其他数据类型转化为string Number Boolean
+//         1.将其他数据类型转化为string
+//             1）调用被转换数据类型的toString()方法；  null和undefined没有tostring，调用会报错;
+//                 该方法不会影响到原变量，它会将转换的结果返回;
+//             var a=123;
+//             var b=a.toString();  或者 a=a.toString();
+//             console.log(typeof b);  console.log(typeof a);
+//             2).调用string（）函数 使用string（）方法进行强制类型转换时，对于number和Boolean实际上就是调用了同string（）方法；
+//                 对于null和undefined，mull直接转换为“null”；undefined转换为“undefined”
+//             var a=123; a=String(a); console.log(typeof a);
+//         2.将其他数据类型转化为number
+//             1）使用number函数  
+//                 字符串转换为数字
+//                     如果是纯数字的字符串将其直接转换为数字
+//                     如果其中有非数字的内容，转换为NaN
+//                     如果字符串为空或者全是空格则转换为0
+//                 布尔转数字
+//                     true转化为1 false转换为0
+//                 null转数字为0
+//                 undefined转数字为0
+//             var a= "123"; a=Number(a); console.log(typeof a);
+//             2）专门处理字符串 parseInt（） parseFloat()
+//             parseInt（） 可以将一个字符串中的有效整数内容取出来，然后转换为number int；
+//             var a= "123px"; a=parseInt(a); console.log(typeof a);
+//             parseFloat()和parseInt()一样，它可以获得有效的小数；
+//             如果对于非String使用parseInt（） parseFloat()，它会先将其转换为string在转换为number
+//         3.将其他数据类型转化为Boolean
+                //使用boolean()函数  
+                // 数字转Boolean
+                //     除了0和NaN都是true
+                // String转Boolean
+                //     除了''都是true
+                // null和undefined转Boolean都是false
+                // 对象也会转换为true
+//             var a= 123; a=Boolean(a); console.log(typeof a);
+
+//其他进制数字
+        // 16进制0x； 0x10
+        // 8进制 0    070  有些浏览器会将其当成八进制，有些当成十进制解析
+        //         解决 a='070' a=parseInt(a,10);或a=parseInt(a,8);
+        // 2进制 0b   
+
+        
+
+    </script>
+</head>
+
+<body>
+    <!-- 可以写，但是属于结构与行为耦合，不方便维护，不推荐使用 -->
+    <!-- 可以写在标签的onclick属性中，点击执行js代码 -->
+    <button onclick="alert('杨霖是猪');">点</button>
+    <!-- 可以写在a标签的href中，点击a标签执行js代码 -->
+    <a href="javascript:alert('杨霖是猪');">点我</a>
+    <!-- <a href=""></a> -->
+    <div id="city">
+        <li class="bj"></li>
+        <li></li>
+    </div>
+</body>
+
+</html>
