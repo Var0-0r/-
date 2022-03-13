@@ -1,0 +1,198 @@
+.main {
+    margin-top: 10px;
+    margin-left: 220px;
+    width: 980px;
+    height: 455px;
+}
+
+.focus {
+    float: left;
+    width: 721px;
+    height: 455px;
+}
+
+.newflash {
+    float: right;
+    width: 250px;
+    height: 455px;
+}
+
+.new {
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+
+.new-hd {
+    /* float: left; */
+    padding: 0 15px;
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px dotted #e4e4e4;
+}
+
+.new-hd h5 {
+    float: left;
+}
+
+
+.new-hd .more {
+    float: right;
+}
+
+.new-hd .more::after {
+    font-family: 'icomoon';
+    content: "\e902";
+}
+
+.lifeservice {
+    overflow: hidden;
+    height: 209px;
+    border: 1px solid #e4e4e4;
+}
+
+.lifeservice ul {
+    width: 252px;
+}
+
+.lifeservice ul li {
+    float: left;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid#e4e4e4;
+    border-bottom: 1px solid#e4e4e4;
+    text-align: center;
+}
+
+.lifeservice ul li i {
+    display: inline-block;
+    margin-top: 12px;
+    height: 28px;
+    width: 24px;
+    background: url(../images/icons.png) no-repeat -19px -15px;
+}
+
+.bargain {
+    margin-top: 5px;
+}
+
+.new-bd ul {
+    padding: 5px 5px;
+}
+
+.new-bd ul li {
+    height: 24px;
+    line-height: 24px;
+}
+
+.recom {
+    height: 163px;
+}
+
+.recom .recom-hd {
+    float: left;
+    width: 205px;
+    height: 163px;
+    padding-top: 30px;
+    text-align: center;
+    background-color: #000;
+}
+
+.recom-bd ul li {
+    float: left;
+    position: relative;
+}
+
+.recom-bd ul li img {
+    width: 248px;
+    height: 163px;
+}
+
+
+.recom-bd ul li:nth-child(-n+3)::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 1px;
+    height: 145px;
+    background-color: #ddd;
+}
+
+.box_hd {
+    height: 30px;
+    border-bottom: 2px solid red;
+}
+
+.box_hd h3 {
+    float: left;
+    font-size: 18px;
+    color: red;
+    font-weight: 400px;
+}
+
+.tab_list {
+    float: right;
+    line-height: 30px;
+}
+
+.tab_list li {
+    float: left;
+}
+
+.tab_list li a {
+    margin: 0 5px;
+}
+
+.floor .w {
+    margin-top: 30px;
+}
+
+.box_dd {
+    height: 361px;
+}
+
+.tab_list-item>div {
+    float: left;
+    height: 361px;
+}
+
+.col_210 {
+    width: 210px;
+    text-align: center;
+}
+
+.tab_list-item .col_210 {
+    background-color: #f9f9f9;
+}
+
+.tab_list-item ul {
+    padding-left: 12px;
+}
+
+.tab_list-item ul li {
+    float: left;
+    margin-right: 10px;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 33px;
+}
+
+.col_329 {
+    width: 329px;
+}
+
+.col_221 {
+    width: 221px;
+    border-right: 1px solid #ccc;
+}
+
+.col_219 {
+    width: 219px;
+}
+
+.bb {
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
